@@ -1,0 +1,14 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+terraform-debug.log
+
+# Variables
+*.tfvars
+
+# SSH keys
+*.pem
+*.key
+
