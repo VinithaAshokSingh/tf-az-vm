@@ -41,7 +41,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("/home/vinitha/ssh/id_rsa.pub")
+    public_key = file("/home/vinitha/terraform-demo/class12/terraform-azure-vm/id_rsa.pub")
   }
 
   os_disk {
