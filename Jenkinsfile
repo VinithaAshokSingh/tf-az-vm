@@ -2,13 +2,10 @@ pipeline {
     agent any
 
        environment {
-        HOME = "/var/lib/jenkins"
-        TF_PLUGIN_CACHE_DIR = "/var/lib/jenkins/.terraform.d/plugin-cache"
-        TF_PLUGIN_TIMEOUT   = "15m"
-
-        // Set to ERROR for CI (TRACE only for debugging)
-        TF_LOG      = "ERROR"
-        TF_LOG_PATH = "terraform-debug.log"
+       AZURE_CLIENT_ID       = credentials('ARM_CLIENT_ID')
+        AZURE_CLIENT_SECRET   = credentials('ARM_CLIENT_SECRET')
+        AZURE_TENANT_ID       = credentials('ARM_TENANT_ID')
+        AZURE_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
 
         ARM_CLIENT_ID       = credentials('ARM_CLIENT_ID')
         ARM_CLIENT_SECRET   = credentials('ARM_CLIENT_SECRET')
