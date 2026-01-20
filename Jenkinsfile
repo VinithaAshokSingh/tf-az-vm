@@ -55,9 +55,7 @@ pipeline {
         stage('Terraform Plan') {
     steps {
         sh '''
-            terraform plan \
-              -input=false \
-              -lock=false
+            terraform plan -input=false
         '''
     }
 }
