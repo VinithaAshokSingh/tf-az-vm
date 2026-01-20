@@ -35,6 +35,14 @@ pipeline {
             }
         }
 
+        stage('Prepare Terraform Cache') {
+    steps {
+        sh '''
+            mkdir -p /var/lib/jenkins/.terraform.d/plugin-cache
+            chmod -R 777 /var/lib/jenkins/.terraform.d
+        '''
+    }
+}
         stage('Terraform Init') {
             steps {
                 sh '''
@@ -45,12 +53,14 @@ pipeline {
         }
 
         stage('Terraform Plan') {
-            steps {
-                sh '''
-                    terraform plan 
-                '''
-            }
-        }
+    steps {
+        sh '''
+            terraform plan \
+              -input=false \
+              -lock=false
+        '''
+    }
+}
 
         stage('Terraform Apply') {
             steps {
