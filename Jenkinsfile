@@ -14,7 +14,8 @@ pipeline {
         ARM_CLIENT_SECRET   = credentials('ARM_CLIENT_SECRET')
         ARM_TENANT_ID       = credentials('ARM_TENANT_ID')
         ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
-        
+        SSH_PUBLIC_KEY = credentials('SSH_PUBLIC_KEY')
+        TF_VAR_ssh_public_key = credentials('AZURE_VM_SSH_PUBLIC_KEY')   
     }
 
     stages {
